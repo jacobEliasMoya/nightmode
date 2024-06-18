@@ -1,0 +1,88 @@
+$main-color:#111;
+$secondary-color:#333;
+$main-text-color:#fff;
+
+@mixin flexCol{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@mixin transition-fast {
+    transition: all ease .25s;
+}
+@mixin minHeight {
+    width: 100%;
+    min-height: 100vh;
+}
+*{
+    box-sizing: border-box;
+}
+
+body{
+        @include minHeight();
+    #root{
+
+        @include minHeight();
+        background-color: $main-color;
+
+        .container{
+            @include minHeight();
+            @include flexCol();
+        }
+
+    }
+
+    #root.active{
+        background-color: $main-text-color;
+    }
+
+}
+
+.btn{
+
+    padding: 1em 2em;
+    background-color: $secondary-color;
+    color: $main-text-color;
+    border-radius: 0em;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    &::after{
+        display: none;
+        content: "";
+        position: absolute;
+        left: -100%;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #650909;
+        z-index: -1;
+    }
+    
+    @include transition-fast();
+
+    &:hover{
+        background-color: #555;
+        color: $main-text-color;
+        border-radius: 5em;
+
+        &::after{
+            position: absolute;
+            left: 0%;
+            top: 0;
+            width: 100%;
+            background-color: #11111139;
+            z-index: 1;
+        }
+
+    }
+}   
+
+.active.btn{
+    background-color: $main-text-color;
+    color: $main-color;
+}
