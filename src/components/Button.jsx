@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function Button(props) {
 
-  const [isToggled , setToggled] = useState(false);
-
-  const toggleState =() =>{
-    setToggled(prev => !prev);
-    console.log(isToggled);
-  }
-
   return (
-    <a className={isToggled ? "btn active" : "btn"} onClick={toggleState}> {props.buttonText} </a> 
+    <a className={props.buttonClass} onClick={props.clickFunction}> {props.buttonText} </a> 
   )
 }
 

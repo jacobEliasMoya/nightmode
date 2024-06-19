@@ -25,11 +25,16 @@ body{
     #root{
 
         @include minHeight();
-        background-color: $main-color;
 
         .container{
+            background-color: #fff;
+
             @include minHeight();
             @include flexCol();
+        }
+
+        .container.active{
+            background-color: $main-color  ;
         }
 
     }
@@ -51,6 +56,7 @@ body{
     overflow: hidden;
     position: relative;
     z-index: 1;
+    
     &::after{
         display: none;
         content: "";

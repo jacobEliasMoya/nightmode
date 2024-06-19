@@ -9,15 +9,18 @@ body {
 body #root {
   width: 100%;
   min-height: 100vh;
-  background-color: #111;
 }
 body #root .container {
+  background-color: #fff;
   width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+body #root .container.active {
+  background-color: #111;
 }
 body #root.active {
   background-color: #fff;
